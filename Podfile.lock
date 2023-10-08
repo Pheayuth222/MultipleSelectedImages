@@ -1,0 +1,28 @@
+PODS:
+  - CarbonKit (2.3.1)
+  - FittedSheets (2.6.1)
+  - PryntTrimmerView (4.0.2)
+  - SteviaLayout (5.1.2)
+
+DEPENDENCIES:
+  - CarbonKit
+  - FittedSheets
+  - PryntTrimmerView
+  - SteviaLayout (= 5.1.2)
+
+SPEC REPOS:
+  trunk:
+    - CarbonKit
+    - FittedSheets
+    - PryntTrimmerView
+    - SteviaLayout
+
+SPEC CHECKSUMS:
+  CarbonKit: b60e24dbdb47179990d5e074efa87ab819c8de98
+  FittedSheets: 37e35f105c531f3845075f1788dd8517a35315c4
+  PryntTrimmerView: 6a43cc90df5d99addeabd33d4ba09b1365322130
+  SteviaLayout: 05424e528d643657d39ce72c786e4adf13cfc5f2
+
+PODFILE CHECKSUM: 7b8bb288fa41be79b0a8363b1b18524c71e5e164
+
+COCOAPODS: 1.12.1
