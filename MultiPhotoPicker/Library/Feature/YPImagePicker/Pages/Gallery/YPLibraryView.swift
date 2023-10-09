@@ -36,7 +36,7 @@ final class YPLibraryView: UIView {
             |line|  
         )
         
-        line.backgroundColor = .white
+        line.backgroundColor = .red
         
         setupMaxNumberOfItemsView()
         setupProgressBarView()

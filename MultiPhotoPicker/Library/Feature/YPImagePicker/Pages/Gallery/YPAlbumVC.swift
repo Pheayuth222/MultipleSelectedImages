@@ -55,8 +55,7 @@ class YPAlbumVC: UIViewController {
         }
     }
     
-    @objc
-    func close() {
+    @objc func close() {
         dismiss(animated: true, completion: nil)
     }
     

@@ -36,13 +36,13 @@ class AllPhotoVC: UIViewController, UIImagePickerControllerDelegate & UINavigati
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
-            let imagePickerController = UIImagePickerController()
-            imagePickerController.delegate = self;
-            imagePickerController.sourceType = .photoLibrary
-//            imagePickerController.modalPresentationStyle = .fullScreen
-            self.present(imagePickerController, animated: true, completion: nil)
-        }
+//        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+//            let imagePickerController = UIImagePickerController()
+//            imagePickerController.delegate = self;
+//            imagePickerController.sourceType = .photoLibrary
+////            imagePickerController.modalPresentationStyle = .fullScreen
+//            self.present(imagePickerController, animated: true, completion: nil)
+//        }
     }
 
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -78,7 +78,7 @@ class AllPhotoVC: UIViewController, UIImagePickerControllerDelegate & UINavigati
 
 extension AllPhotoVC : UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return selectedImages.count
+        return 15
     }
 
 
@@ -86,7 +86,7 @@ extension AllPhotoVC : UICollectionViewDelegate, UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCollectionViewCell", for: indexPath) as! PhotoCollectionViewCell
 //        let fetchOptions = PHFetchOptions()
 //        let allPhotos = PHAsset.fetchAssets(with: .image, options: fetchOptions)
-        cell.imageView.image = selectedImages[indexPath.item]
+//        cell.imageView.image = selectedImages[indexPath.item]
         return cell
     }
 

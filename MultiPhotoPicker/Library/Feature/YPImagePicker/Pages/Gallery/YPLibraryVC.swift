@@ -11,14 +11,14 @@ import Photos
 import PhotosUI
 import CarbonKit
 
-public class YPLibraryVC: UIViewController, YPPermissionCheckable, CarbonTabSwipeNavigationDelegate {
+class YPLibraryVC: UIViewController, YPPermissionCheckable {
     
     internal weak var delegate: YPLibraryViewDelegate?
     internal var v: YPLibraryView!
     internal var isProcessing = false // true if video or image is in processing state
     internal var multipleSelectionEnabled = true
     internal var initialized = false
-    internal var selection = [YPLibrarySelection]()
+    internal var selectionArr = [YPLibrarySelection]()
     internal var currentlySelectedIndex: Int = 1
     internal let mediaManager = LibraryMediaManager()
     internal var latestImageTapped = ""
@@ -27,8 +27,6 @@ public class YPLibraryVC: UIViewController, YPPermissionCheckable, CarbonTabSwip
     
 //    internal var responseImage   : WABOOKS_MREC_C002.RESPONSE?
     
-    var controllerNames = ["All","Photos","Album"]
-    var carbonTapSwipeNavigation = CarbonTabSwipeNavigation()
 
     // MARK: - Init
     
@@ -46,7 +44,7 @@ public class YPLibraryVC: UIViewController, YPPermissionCheckable, CarbonTabSwip
         mediaManager.collection = album.collection
         currentlySelectedIndex = 1
         if !multipleSelectionEnabled {
-            selection.removeAll()
+            selectionArr.removeAll()
         }
         refreshMediaRequest()
     }
@@ -97,38 +95,6 @@ public class YPLibraryVC: UIViewController, YPPermissionCheckable, CarbonTabSwip
         }
         
         registerForLibraryChanges()
-    }
-    
-    private func configCabonKitView() {
-        // Do any additional setup after loading the view.
-        carbonTapSwipeNavigation = CarbonTabSwipeNavigation(items: controllerNames, delegate: self)
-        carbonTapSwipeNavigation.insert(intoRootViewController: self)
-        carbonTapSwipeNavigation.setTabBarHeight(50)
-        carbonTapSwipeNavigation.setTabExtraWidth(50)
-        carbonTapSwipeNavigation.carbonTabSwipeScrollView.backgroundColor = UIColor.white
-        carbonTapSwipeNavigation.setIndicatorHeight(2)
-        carbonTapSwipeNavigation.setSelectedColor(UIColor.purple)
-        carbonTapSwipeNavigation.carbonSegmentedControl?.backgroundColor = UIColor.white
-        
-        carbonTapSwipeNavigation.setIndicatorColor(UIColor.purple)
-        carbonTapSwipeNavigation.setNormalColor(UIColor.gray)
-        
-        //position
-        carbonTapSwipeNavigation.carbonSegmentedControl?.indicatorPosition = .bottom
-    }
-    
-    public func carbonTabSwipeNavigation(_ carbonTabSwipeNavigation: CarbonTabSwipeNavigation, viewControllerAt index: UInt) -> UIViewController {
-        guard let storyboard = storyboard else { return
-            UIViewController()
-        }
-        
-        if index == 0 {
-            return storyboard.instantiateViewController(withIdentifier: "AllPhotoVC")
-        }else if index == 1 {
-            return storyboard.instantiateViewController(withIdentifier: "PhotoVC")
-        }else{
-            return storyboard.instantiateViewController(withIdentifier: "AlbumVC")
-        }
     }
     
     public override func viewWillAppear(_ animated: Bool) {
@@ -234,7 +200,7 @@ public class YPLibraryVC: UIViewController, YPPermissionCheckable, CarbonTabSwip
         doAfterPermissionCheck { [weak self] in
             if let self = self {
                 if !self.multipleSelectionEnabled {
-                    self.selection.removeAll()
+                    self.selectionArr.removeAll()
                 }
                 self.showMultipleSelection()
             }
@@ -251,9 +217,9 @@ public class YPLibraryVC: UIViewController, YPPermissionCheckable, CarbonTabSwip
         multipleSelectionEnabled = !multipleSelectionEnabled
         
         if multipleSelectionEnabled {
-            if selection.isEmpty && YPConfig.library.preSelectItemOnMultipleSelection,
+            if selectionArr.isEmpty && YPConfig.library.preSelectItemOnMultipleSelection,
                 delegate?.libraryViewShouldAddToSelection(indexPath: IndexPath(row: currentlySelectedIndex, section: 0),
-                                                          numSelections: selection.count) ?? true {
+                                                          numSelections: selectionArr.count) ?? true {
                 
                 // Prevent index out of range
                 var index = currentlySelectedIndex
@@ -263,7 +229,7 @@ public class YPLibraryVC: UIViewController, YPPermissionCheckable, CarbonTabSwip
                 }
                 
                 let asset = mediaManager.fetchResult[index]
-                selection = [
+                selectionArr = [
                     YPLibrarySelection(index: currentlySelectedIndex,
                                        cropRect: v.currentCropRect(),
                                        scrollViewContentOffset: v.assetZoomableView!.contentOffset,
@@ -272,7 +238,7 @@ public class YPLibraryVC: UIViewController, YPPermissionCheckable, CarbonTabSwip
                 ]
             }
         } else {
-            selection.removeAll()
+            selectionArr.removeAll()
             addToSelection(indexPath: IndexPath(row: currentlySelectedIndex, section: 0))
         }
         
@@ -476,7 +442,8 @@ public class YPLibraryVC: UIViewController, YPPermissionCheckable, CarbonTabSwip
             case .image:
                 self.v.assetZoomableView.setImage(asset,
                                                   mediaManager: self.mediaManager,
-                                                  storedCropPosition: self.fetchStoredCrop(),
+                                                  storedCropPosition: nil,
+//                                                  storedCropPosition: self.fetchStoredCrop(),
                                                   completion: completion)
             case .video:
                 self.v.assetZoomableView.setVideo(asset,
@@ -515,39 +482,39 @@ public class YPLibraryVC: UIViewController, YPPermissionCheckable, CarbonTabSwip
     // MARK: - Stored Crop Position
     
     internal func updateCropInfo(shouldUpdateOnlyIfNil: Bool = false) {
-        guard let selectedAssetIndex = selection.firstIndex(where: { $0.index == currentlySelectedIndex }) else {
+        guard let selectedAssetIndex = selectionArr.firstIndex(where: { $0.index == currentlySelectedIndex }) else {
             return
         }
         
-        if shouldUpdateOnlyIfNil && selection[selectedAssetIndex].scrollViewContentOffset != nil {
+        if shouldUpdateOnlyIfNil && selectionArr[selectedAssetIndex].scrollViewContentOffset != nil {
             return
         }
         
         // Fill new values
-        var selectedAsset = selection[selectedAssetIndex]
+        var selectedAsset = selectionArr[selectedAssetIndex]
         selectedAsset.scrollViewContentOffset = v.assetZoomableView.contentOffset
         selectedAsset.scrollViewZoomScale = v.assetZoomableView.zoomScale
         selectedAsset.cropRect = v.currentCropRect()
         
         // Replace
-        selection.remove(at: selectedAssetIndex)
-        selection.insert(selectedAsset, at: selectedAssetIndex)
+        selectionArr.remove(at: selectedAssetIndex)
+        selectionArr.insert(selectedAsset, at: selectedAssetIndex)
     }
     
     internal func fetchStoredCrop() -> YPLibrarySelection? {
         if self.multipleSelectionEnabled,
-            self.selection.contains(where: { $0.index == self.currentlySelectedIndex }) {
-            guard let selectedAssetIndex = self.selection
+            self.selectionArr.contains(where: { $0.index == self.currentlySelectedIndex }) {
+            guard let selectedAssetIndex = self.selectionArr
                 .firstIndex(where: { $0.index == self.currentlySelectedIndex }) else {
                 return nil
             }
-            return self.selection[selectedAssetIndex]
+            return self.selectionArr[selectedAssetIndex]
         }
         return nil
     }
     
     internal func hasStoredCrop(index: Int) -> Bool {
-        return self.selection.contains(where: { $0.index == index })
+        return self.selectionArr.contains(where: { $0.index == index })
     }
     
     // MARK: - Fetching Media
@@ -583,13 +550,13 @@ public class YPLibraryVC: UIViewController, YPPermissionCheckable, CarbonTabSwip
                               multipleItemsCallback: @escaping (_ items: [YPMediaItem]) -> Void) {
         DispatchQueue.global(qos: .userInitiated).async {
             
-            let selectedAssets: [(asset: PHAsset, cropRect: CGRect?)] = self.selection.map {
+            let selectedAssets: [(asset: PHAsset, cropRect: CGRect?)] = self.selectionArr.map {
                 guard let asset = PHAsset.fetchAssets(withLocalIdentifiers: [$0.assetIdentifier], options: PHFetchOptions()).firstObject else { fatalError() }
                 return (asset, $0.cropRect)
             }
             
             // Multiple selection
-            if self.multipleSelectionEnabled && self.selection.count > 1 {
+            if self.multipleSelectionEnabled && self.selectionArr.count > 1 {
                 
                 // Check video length
                 for asset in selectedAssets {

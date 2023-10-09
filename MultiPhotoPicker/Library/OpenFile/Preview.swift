@@ -8,6 +8,6 @@
 import Foundation
 import QuickLook
 
-class PreviewItem: NSObject, QLPreviewItem {
-    var previewItemURL: URL?
-}
+//class PreviewItem: NSObject, QLPreviewItem {
+//    var previewItemURL: URL?
+//}

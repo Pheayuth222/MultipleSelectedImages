@@ -9,7 +9,7 @@
 import UIKit
 
 extension YPLibraryVC {
-    var isLimitExceeded: Bool { return selection.count >= YPConfig.library.maxNumberOfItems }
+    var isLimitExceeded: Bool { return selectionArr.count >= YPConfig.library.maxNumberOfItems }
     
     func setupCollectionView() {
         v.collectionView.dataSource = self
@@ -58,15 +58,15 @@ extension YPLibraryVC {
     
     /// Removes cell from selection
     func deselect(indexPath: IndexPath) {
-        if let positionIndex = selection.firstIndex(where: {
+        if let positionIndex = selectionArr.firstIndex(where: {
             $0.assetIdentifier == mediaManager.fetchResult[indexPath.row].localIdentifier
         }) {
-            selection.remove(at: positionIndex)
+            selectionArr.remove(at: positionIndex)
 
             // Refresh the numbers
             var selectedIndexPaths = [IndexPath]()
             mediaManager.fetchResult.enumerateObjects { [unowned self] (asset, index, _) in
-                if self.selection.contains(where: { $0.assetIdentifier == asset.localIdentifier }) {
+                if self.selectionArr.contains(where: { $0.assetIdentifier == asset.localIdentifier }) {
                     selectedIndexPaths.append(IndexPath(row: index, section: 0))
                 }
             }
@@ -90,7 +90,7 @@ extension YPLibraryVC {
     
     /// Adds cell to selection
     func addToSelection(indexPath: IndexPath) {
-        if !(delegate?.libraryViewShouldAddToSelection(indexPath: indexPath, numSelections: selection.count) ?? true) {
+        if !(delegate?.libraryViewShouldAddToSelection(indexPath: indexPath, numSelections: selectionArr.count) ?? true) {
             return
         }
         
@@ -102,7 +102,7 @@ extension YPLibraryVC {
         }
         
         let asset = mediaManager.fetchResult[index]
-        selection.append(
+        selectionArr.append(
             YPLibrarySelection(
                 index: indexPath.row,
                 assetIdentifier: asset.localIdentifier
@@ -112,7 +112,7 @@ extension YPLibraryVC {
     }
     
     func isInSelectionPool(indexPath: IndexPath) -> Bool {
-        return selection.contains(where: {
+        return selectionArr.contains(where: {
             $0.assetIdentifier == mediaManager.fetchResult[indexPath.row].localIdentifier
         })
     }
@@ -161,19 +161,19 @@ extension YPLibraryVC: UICollectionViewDelegate, UICollectionViewDataSource {
     
     // + 1 because add camera to to collection
     // - 1 get the current selected image
-    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return mediaManager.fetchResult.count + 1
     }
     
-    public func collectionView(_ collectionView: UICollectionView,
-                               cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "YPLibraryViewCell",
                                                             for: indexPath) as? YPLibraryViewCell else {
-                                                                fatalError("unexpected cell in collection view")
+            fatalError("unexpected cell in collection view")
         }
         
-//        open camera on first
+        //        open camera on first
         if indexPath.row == 0 {
             cell.imageView.image                            = UIImage(named: "camera_image")
             cell.multipleSelectionIndicator.isHidden        = true
@@ -186,19 +186,19 @@ extension YPLibraryVC: UICollectionViewDelegate, UICollectionViewDataSource {
             cell.multipleSelectionIndicator.isHidden        = false
             cell.representedAssetIdentifier                 = asset.localIdentifier
             cell.multipleSelectionIndicator.selectionColor  = YPConfig.colors.multipleItemsSelectedCircleColor
-                                                                ?? YPConfig.colors.tintColor
+            ?? YPConfig.colors.tintColor
             
             mediaManager.imageManager?.requestImage(for: asset,
-                                       targetSize: v.cellSize(),
-                                       contentMode: .aspectFill,
-                                       options: nil) { image, _ in
-                                        // The cell may have been recycled when the time this gets called
-                                        // set image only if it's still showing the same asset.
-                                        if cell.representedAssetIdentifier == asset.localIdentifier && image != nil {
-                                            if indexPath.row != 0 {
-                                                cell.imageView.image = image
-                                            }
-                                        }
+                                                    targetSize: v.cellSize(),
+                                                    contentMode: .aspectFill,
+                                                    options: nil) { image, _ in
+                // The cell may have been recycled when the time this gets called
+                // set image only if it's still showing the same asset.
+                if cell.representedAssetIdentifier == asset.localIdentifier && image != nil {
+                    if indexPath.row != 0 {
+                        cell.imageView.image = image
+                    }
+                }
             }
             
             let isVideo = (asset.mediaType == .video)
@@ -208,10 +208,10 @@ extension YPLibraryVC: UICollectionViewDelegate, UICollectionViewDataSource {
             cell.isSelected = currentlySelectedIndex == indexPath.row //set highlighted image
             
             // Set correct selection number
-            if let index = selection.firstIndex(where: { $0.assetIdentifier == asset.localIdentifier }) {
-                let currentSelection = selection[index]
+            if let index = selectionArr.firstIndex(where: { $0.assetIdentifier == asset.localIdentifier }) {
+                let currentSelection = selectionArr[index]
                 if currentSelection.index < 0 {
-                    selection[index] = YPLibrarySelection(index: indexPath.row - 1, //edit
+                    selectionArr[index] = YPLibrarySelection(index: indexPath.row - 1, //edit
                                                           cropRect: currentSelection.cropRect,
                                                           scrollViewContentOffset: currentSelection.scrollViewContentOffset,
                                                           scrollViewZoomScale: currentSelection.scrollViewZoomScale,
@@ -223,7 +223,7 @@ extension YPLibraryVC: UICollectionViewDelegate, UICollectionViewDataSource {
                 cell.multipleSelectionIndicator.set(number: nil)
                 cell.selectionOverlay.alpha = 0
             }
- 
+            
             // Prevent weird animation where thumbnail fills cell on first scrolls.
             UIView.performWithoutAnimation {
                 cell.layoutIfNeeded()
@@ -232,7 +232,7 @@ extension YPLibraryVC: UICollectionViewDelegate, UICollectionViewDataSource {
         }
     }
     
-    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         if indexPath.row == 0 {
             self.checkCameraPermisson()
@@ -268,7 +268,7 @@ extension YPLibraryVC: UICollectionViewDelegate, UICollectionViewDataSource {
 //                collectionView.reloadItems(at: [previouslySelectedIndexPath])
                 
             } else {
-                selection.removeAll()
+                selectionArr.removeAll()
                 addToSelection(indexPath: IndexPath(item: indexPath.row - 1, section: indexPath.section))
                 
                 // Force deseletion of previously selected cell.
@@ -317,9 +317,10 @@ extension YPLibraryVC : UICollectionViewDelegateFlowLayout {
 }
 
 extension UICollectionView {
-func roundCorners(_ corners:UIRectCorner, radius: CGFloat) {
-   let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
-   let mask = CAShapeLayer()
-   mask.path = path.cgPath
-   self.layer.mask = mask
-}}
+    func roundCorners(_ corners:UIRectCorner, radius: CGFloat) {
+        let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        let mask = CAShapeLayer()
+        mask.path = path.cgPath
+        self.layer.mask = mask
+    }
+}

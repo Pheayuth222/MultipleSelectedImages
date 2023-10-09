@@ -9,6 +9,7 @@
 import Foundation
 import Stevia
 import Photos
+import CarbonKit
 
 protocol ImagePickerDelegate: AnyObject {
     func noPhotos()
@@ -16,7 +17,7 @@ protocol ImagePickerDelegate: AnyObject {
 
 }
 
-open class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
+open class YPPickerVC: YPBottomPager, YPBottomPagerDelegate,CarbonTabSwipeNavigationDelegate {
     
     let albumsManager = YPAlbumsManager()
     var shouldHideStatusBar = false
@@ -50,10 +51,12 @@ open class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
     
     var capturedImage: UIImage?
     
+    var controllerNames = ["All","Photos","Album"]
+    var carbonTapSwipeNavigation = CarbonTabSwipeNavigation()
+    
     open override func viewDidLoad() {
         super.viewDidLoad()
-        
-        view.backgroundColor = UIColor(r: 247, g: 247, b: 247)
+//        view.backgroundColor = UIColor(r: 247, g: 247, b: 247)
         
         delegate = self
         
@@ -127,6 +130,41 @@ open class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
         
         YPHelper.changeBackButtonIcon(self)
         YPHelper.changeBackButtonTitle(self)
+        
+//        configCabonKitView()
+    }
+    
+    private func configCabonKitView() {
+        // Do any additional setup after loading the view.
+        carbonTapSwipeNavigation = CarbonTabSwipeNavigation(items: controllerNames, delegate: self)
+        carbonTapSwipeNavigation.insert(intoRootViewController: self)
+        carbonTapSwipeNavigation.setTabBarHeight(50)
+        carbonTapSwipeNavigation.setTabExtraWidth(50)
+        carbonTapSwipeNavigation.carbonTabSwipeScrollView.backgroundColor = UIColor.white
+        carbonTapSwipeNavigation.setIndicatorHeight(2)
+        carbonTapSwipeNavigation.setSelectedColor(UIColor.purple)
+        carbonTapSwipeNavigation.carbonSegmentedControl?.backgroundColor = UIColor.white
+        
+        carbonTapSwipeNavigation.setIndicatorColor(UIColor.purple)
+        carbonTapSwipeNavigation.setNormalColor(UIColor.gray)
+        
+        //position
+        carbonTapSwipeNavigation.carbonSegmentedControl?.indicatorPosition = .bottom
+    }
+    
+    
+    public func carbonTabSwipeNavigation(_ carbonTabSwipeNavigation: CarbonTabSwipeNavigation, viewControllerAt index: UInt) -> UIViewController {
+        guard let storyboard = storyboard else { return
+            UIViewController()
+        }
+        
+        if index == 0 {
+            return storyboard.instantiateViewController(withIdentifier: "YPLibraryVC")
+        }else if index == 1 {
+            return storyboard.instantiateViewController(withIdentifier: "PhotoVC")
+        }else{
+            return storyboard.instantiateViewController(withIdentifier: "AlbumVC")
+        }
     }
     
     open override func viewWillAppear(_ animated: Bool) {
@@ -258,8 +296,7 @@ open class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
         stopAll()
     }
     
-    @objc
-    func navBarTapped() {
+    @objc func navBarTapped() {
         let vc = YPAlbumVC(albumsManager: albumsManager)
         let navVC = UINavigationController(rootViewController: vc)
         
@@ -307,7 +344,7 @@ open class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
             }
             
             let button = UIButton()
-            button.addTarget(self, action: #selector(navBarTapped), for: .touchUpInside)
+//            button.addTarget(self, action: #selector(navBarTapped), for: .touchUpInside)
             button.setBackgroundColor(UIColor.white.withAlphaComponent(0.5), forState: .highlighted)
             
             titleView.sv(
@@ -344,7 +381,7 @@ open class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
             setTitleViewWithTitle(aTitle: libraryVC?.title ?? "")
             
             //Chay: 01-09-2021
-            let imageSelect = libraryVC!.selection.count > 0 ? " (\(libraryVC!.selection.count))" : ""
+            let imageSelect = libraryVC!.selectionArr.count > 0 ? " (\(libraryVC!.selectionArr.count))" : ""
             navigationItem.rightBarButtonItem = UIBarButtonItem(title: YPConfig.wordings.done + imageSelect,
                                                                 style: .plain,
                                                                 target: self,
@@ -352,8 +389,8 @@ open class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
             navigationItem.rightBarButtonItem?.tintColor = YPConfig.colors.tintColor
             
             // Disable Next Button until minNumberOfItems is reached.
-            if libraryVC!.selection.count >= YPConfig.library.minNumberOfItems {
-                if libraryVC!.selection.count > CURRENT_MAX_IMAGES {
+            if libraryVC!.selectionArr.count >= YPConfig.library.minNumberOfItems {
+                if libraryVC!.selectionArr.count > CURRENT_MAX_IMAGES {
                     navigationItem.rightBarButtonItem?.isEnabled = false
                 }else{
                     navigationItem.rightBarButtonItem?.isEnabled = true

@@ -18,7 +18,7 @@ class ViewController: UIViewController {
         }
     }
     private var imagesArr: [UIImage] = []
-    private let maxImages       : Int = 100
+    private let maxImages       : Int = 500
     private var documentManager     : DocumentsManager!
     
     override func viewDidLoad() {
@@ -71,12 +71,20 @@ class ViewController: UIViewController {
     func openGallery() {
 //        Shared.isFromMainTabBar     = true
         let CURRENT_MAX_IMAGES   = 5
-        InstaImagePicker.showInstaPopupMultipleImage(owner: self, isCreate: .library, maxImages: maxImages) { (imgs) in
+        // Multiple Selection
+        showInstaPopupMultipleImage(owner: self, isCreate: .library, maxImages: maxImages) { (imgs) in
             if imgs.count > 0 {
                 self.didFinishPickImages(images: imgs)
                 print("Images...: \(imgs)")
             }
         }
+        
+        // Single Select
+//        InstaImagePicker.showInstaPopupImage(owner: self) { (imgs) in
+//            self.didFinishSelectionImage(imageData: imgs)
+//            print(imgs)
+//            self.dismiss(animated: true, completion: nil)
+//        }
     }
     
     // TODO: - Upload Image from gallery
@@ -121,6 +129,7 @@ class ViewController: UIViewController {
 //        }
 
     }
+    
 
     @IBAction func addPhoto(_ sender: UIButton) {
 //        let storyBoard = UIStoryboard(name: "ChoosePhotoSB", bundle: nil)
@@ -128,23 +137,24 @@ class ViewController: UIViewController {
 //        let nav = UINavigationController.init(rootViewController: vc)
 //        self.presetVC(vc: nav)
 //        sender.animateButtonUp()
-        customOption(type       : .MultipleChoice,
-                     image      : "",
-                     title      : "Take Picture",
-                     message    : "Take a photo or choose from a gallery",
-                     data       : ["Take a Photo", "Take a photo or choose from a gallery", "Attach File"],
-                     selectRowAt: -1,
-                     imgStrRec  : ["camera_ico", "gallery_ico", "tap_attachment"]) { [unowned self](index) in
-            switch index {
-            case 0:
-                self.view.endEditing(true)
-                self.checkCameraPermisson()
-                
-            case 1  : self.openGallery()
-            case 2  : self.openAttachFile()
-            default : break
-            }
-        }
+        openGallery()
+//        customOption(type       : .MultipleChoice,
+//                     image      : "",
+//                     title      : "Take Picture",
+//                     message    : "Take a photo or choose from a gallery",
+//                     data       : ["Take a Photo", "Take a photo or choose from a gallery", "Attach File"],
+//                     selectRowAt: -1,
+//                     imgStrRec  : ["camera_ico", "gallery_ico", "tap_attachment"]) { [unowned self](index) in
+//            switch index {
+//            case 0:
+//                self.view.endEditing(true)
+//                self.checkCameraPermisson()
+//
+//            case 1  : self.openGallery()
+//            case 2  : self.openAttachFile()
+//            default : break
+//            }
+//        }
     }
     
     
@@ -152,18 +162,37 @@ class ViewController: UIViewController {
 
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return imagesArr.count
+        switch section {
+        case 0 :
+            return 1
+        default : return imagesArr.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "GetImageTableCell", for: indexPath) as! GetImageTableCell
-        cell.getImageView.image = imagesArr[indexPath.row]
-        return cell
+        switch indexPath.section  {
+        case 0 :
+            let cell = tableView.dequeueReusableCell(withIdentifier: "titleCell", for: indexPath)
+            return cell
+        default :
+            let cell = tableView.dequeueReusableCell(withIdentifier: "GetImageTableCell", for: indexPath) as! GetImageTableCell
+            cell.getImageView.image = imagesArr[indexPath.row]
+            return cell
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 110
+        switch indexPath.section  {
+        case 0 :
+            return 56
+        default :
+            return 110
+        }
     }
     
 }
@@ -187,5 +216,126 @@ extension ViewController : SelectedImageDelegate {
         imagesArr.append(imageData)
         tableView.reloadData()
     }
+    
+}
+
+
+extension ViewController {
+    
+    func showInstaPopupMultipleImage(owner : UIViewController, isCreate: YPPickerScreen, maxImages: Int,completeBlock : (([UIImage]) -> Void)?)  {
+        
+        var config = YPImagePickerConfiguration()
+        config.shouldSaveNewPicturesToAlbum             = false
+        config.library.mediaType                        = .photo
+        config.startOnScreen                            = isCreate
+        config.showsPhotoFilters                        = false
+        config.library.skipSelectionsGallery            = true
+        config.targetImageSize                          = .original
+        config.hidesStatusBar                           = false
+        config.library.maxNumberOfItems                 = maxImages
+        config.library.defaultMultipleSelection         = false
+        config.preferredStatusBarStyle                  = .default
+        
+        config.wordings.libraryTitle                    = "Add Photos"//"gallery"
+        config.wordings.next                            = "select"
+        config.wordings.cancel                          = ""//"cancel_btn".localized // "back".localized
+        config.wordings.cameraTitle                     = "camera"
+        config.wordings.done                            = "Next" //"select" // "choose".localized
+        config.wordings.warningMaxItemsLimit            = ""
+        config.colors.coverSelectorBorderColor          = .red
+//        config.colors.multipleItemsSelectedCircleColor  = UIColor(hexString: "0069B9")
+//        config.colors.tintColor                         = UIColor(hexString: "0069B9") // Right bar buttons (actions)
+        
+//        let defaultFont     = UIFont(name: "Inter-Bold", size: 15)
+//        let fontNameToTest  = defaultFont!.fontName.lowercased()
+//        let fontName        = Shared.share.getLocalizedFont(preFontName: fontNameToTest)
+//        let font            = UIFont(name: fontName, size: defaultFont!.pointSize)
+
+        // #494949
+//        UINavigationBar.appearance().titleTextAttributes    = [NSAttributedString.Key.foregroundColor : UIColor(hexString: "0069B9"),  NSAttributedString.Key.font : font!] // Title color nav bar
+//        UINavigationBar.appearance().tintColor              = UIColor(hexString: "0069B9") // Left. bar buttons
+
+//        let attrsBarButton = [
+//            NSAttributedString.Key.font: UIFont(name: fontName, size: 15)!,
+//            NSAttributedString.Key.foregroundColor : UIColor(hexString: "0069B9")
+//        ]
+//        UIBarButtonItem.appearance().setTitleTextAttributes(attrsBarButton, for: .normal)
+////        UINavigationBar.appearance().barTintColor = .pinky
+//        UINavigationBar.appearance().isTranslucent = false
+    
+        let picker = YPImagePicker(configuration: config)
+        /*
+         Presentation style changed in iOS 13
+         */
+        picker.modalPresentationStyle = .fullScreen
+        picker.navigationBar.barTintColor = .white
+        picker.didFinishPicking { [unowned picker] items, _ in
+            var imgArr : [UIImage] = []
+            for item in items {
+                switch item {
+                case .photo(let photo):
+                    imgArr.append(photo.image)// = photo.image
+                default:
+                    break
+                }
+            }
+            picker.dismiss(animated: true, completion: {
+                
+                completeBlock!(imgArr)
+            })
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            owner.present(picker, animated: true, completion: nil)
+        }
+        
+    }
+    
+    func showInstaPopupImage(owner : UIViewController,completeBlock : ((UIImage) -> Void)?)  {
+       
+       var config = YPImagePickerConfiguration()
+       config.shouldSaveNewPicturesToAlbum     = false
+       config.library.mediaType                = .photo
+       config.startOnScreen                    = .library
+       config.showsPhotoFilters                = false
+       config.targetImageSize                  = .original
+       config.hidesStatusBar                   = false
+      
+       
+       config.wordings.libraryTitle            = "gallery"
+       config.wordings.next                    = "select"
+       config.wordings.cancel                  = "cancel_btn"
+       config.wordings.cameraTitle             = "camera"
+       config.wordings.done                    = "select"
+       config.wordings.warningMaxItemsLimit    = "사진과 동영상은 최대 10개 까지 선택할 수 있습니다."
+       
+       
+//        let defaultFont     = UIFont(name: "Inter-Bold", size: 15)
+//        let fontNameToTest  = defaultFont!.fontName.lowercased();
+//        let fontName        = Shared.share.getLocalizedFont(preFontName: fontNameToTest)
+//        let font            =  UIFont(name: fontName, size: defaultFont!.pointSize)
+//
+//        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor(hexString: "0069B9"), NSAttributedString.Key.font: font! ] // Title color
+//        UINavigationBar.appearance().tintColor = UIColor(hexString: "0069B9") // Left. bar buttons
+//        //config.colors.tintColor = .pinky // Right bar buttons (actions)
+//
+//
+//        let attrsBarButton = [
+//            NSAttributedString.Key.font: UIFont(name: fontName, size: 15)!,
+//            NSAttributedString.Key.foregroundColor : UIColor(hexString: "0069B9")
+//        ]
+//        UIBarButtonItem.appearance().setTitleTextAttributes(attrsBarButton, for: .normal)
+
+       let picker = YPImagePicker(configuration: config)
+       //picker.navigationBar.barTintColor = .pinky
+       picker.didFinishPicking { [unowned picker] items, _ in
+           if let photo = items.singlePhoto {
+               completeBlock!(photo.image)
+           }
+           picker.dismiss(animated: true, completion: nil)
+       }
+       DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+           owner.present(picker, animated: true, completion: nil)
+       }
+   }
     
 }

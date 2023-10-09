@@ -17,9 +17,6 @@
 		52B6374A2AD2890F00FD2D8B /* CCSwipBackPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B636C42AD2890F00FD2D8B /* CCSwipBackPresentationController.swift */; };
 		52B6374B2AD2890F00FD2D8B /* CCZoomTransitioner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B636C52AD2890F00FD2D8B /* CCZoomTransitioner.swift */; };
 		52B6374C2AD2890F00FD2D8B /* DocumentsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B636C72AD2890F00FD2D8B /* DocumentsManager.swift */; };
-		52B6374D2AD2890F00FD2D8B /* WkBaseWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B636C92AD2890F00FD2D8B /* WkBaseWebView.m */; };
-		52B6374E2AD2890F00FD2D8B /* Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B636CC2AD2890F00FD2D8B /* Preview.swift */; };
-		52B6374F2AD2890F00FD2D8B /* Feature.zip in Resources */ = {isa = PBXBuildFile; fileRef = 52B636CD2AD2890F00FD2D8B /* Feature.zip */; };
 		52B637502AD2890F00FD2D8B /* YPVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B636D22AD2890F00FD2D8B /* YPVideoView.swift */; };
 		52B637512AD2890F00FD2D8B /* YPVideoFiltersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B636D32AD2890F00FD2D8B /* YPVideoFiltersVC.swift */; };
 		52B637522AD2890F00FD2D8B /* YPVideoFiltersVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52B636D42AD2890F00FD2D8B /* YPVideoFiltersVC.xib */; };
@@ -122,6 +119,7 @@
 		82C5A62E2ACE8EA10031DDAD /* AlbumVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C5A62D2ACE8EA10031DDAD /* AlbumVC.swift */; };
 		82C5A6322ACE94FD0031DDAD /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C5A6302ACE94FD0031DDAD /* PhotoCollectionViewCell.swift */; };
 		82C5A6332ACE94FD0031DDAD /* PhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82C5A6312ACE94FD0031DDAD /* PhotoCollectionViewCell.xib */; };
+		82FABF082AD3ECE500FAF616 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FABF072AD3ECE500FAF616 /* UIColor.swift */; };
 		937F75DCCD4C8ABFADAD0797 /* Pods_MultiPhotoPicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6F6BE9A7445D88EDCA62493 /* Pods_MultiPhotoPicker.framework */; };
 /* End PBXBuildFile section */
 
@@ -137,10 +135,6 @@
 		52B636C42AD2890F00FD2D8B /* CCSwipBackPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCSwipBackPresentationController.swift; sourceTree = "<group>"; };
 		52B636C52AD2890F00FD2D8B /* CCZoomTransitioner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCZoomTransitioner.swift; sourceTree = "<group>"; };
 		52B636C72AD2890F00FD2D8B /* DocumentsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentsManager.swift; sourceTree = "<group>"; };
-		52B636C92AD2890F00FD2D8B /* WkBaseWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WkBaseWebView.m; sourceTree = "<group>"; };
-		52B636CA2AD2890F00FD2D8B /* WkBaseWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WkBaseWebView.h; sourceTree = "<group>"; };
-		52B636CC2AD2890F00FD2D8B /* Preview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preview.swift; sourceTree = "<group>"; };
-		52B636CD2AD2890F00FD2D8B /* Feature.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = Feature.zip; sourceTree = "<group>"; };
 		52B636D22AD2890F00FD2D8B /* YPVideoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YPVideoView.swift; sourceTree = "<group>"; };
 		52B636D32AD2890F00FD2D8B /* YPVideoFiltersVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YPVideoFiltersVC.swift; sourceTree = "<group>"; };
 		52B636D42AD2890F00FD2D8B /* YPVideoFiltersVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YPVideoFiltersVC.xib; sourceTree = "<group>"; };
@@ -262,6 +256,7 @@
 		82C5A62D2ACE8EA10031DDAD /* AlbumVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumVC.swift; sourceTree = "<group>"; };
 		82C5A6302ACE94FD0031DDAD /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		82C5A6312ACE94FD0031DDAD /* PhotoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCollectionViewCell.xib; sourceTree = "<group>"; };
+		82FABF072AD3ECE500FAF616 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		A6F6BE9A7445D88EDCA62493 /* Pods_MultiPhotoPicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MultiPhotoPicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC2D8736645E27ADFCA38BA4 /* Pods-MultiPhotoPicker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MultiPhotoPicker.release.xcconfig"; path = "Target Support Files/Pods-MultiPhotoPicker/Pods-MultiPhotoPicker.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -303,6 +298,7 @@
 				52B636B72AD27FF700FD2D8B /* UIView.swift */,
 				52B636B92AD2806600FD2D8B /* UIViewController.swift */,
 				52E04DA62AD290BC00BD5438 /* String.swift */,
+				82FABF072AD3ECE500FAF616 /* UIColor.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -321,9 +317,6 @@
 			children = (
 				52B636C12AD2890F00FD2D8B /* CCZoomTransition */,
 				52B636C62AD2890F00FD2D8B /* Attachment */,
-				52B636C82AD2890F00FD2D8B /* WKWebView */,
-				52B636CB2AD2890F00FD2D8B /* OpenFile */,
-				52B636CD2AD2890F00FD2D8B /* Feature.zip */,
 				52B636CE2AD2890F00FD2D8B /* Feature */,
 			);
 			path = Library;
@@ -346,23 +339,6 @@
 				52B636C72AD2890F00FD2D8B /* DocumentsManager.swift */,
 			);
 			path = Attachment;
-			sourceTree = "<group>";
-		};
-		52B636C82AD2890F00FD2D8B /* WKWebView */ = {
-			isa = PBXGroup;
-			children = (
-				52B636C92AD2890F00FD2D8B /* WkBaseWebView.m */,
-				52B636CA2AD2890F00FD2D8B /* WkBaseWebView.h */,
-			);
-			path = WKWebView;
-			sourceTree = "<group>";
-		};
-		52B636CB2AD2890F00FD2D8B /* OpenFile */ = {
-			isa = PBXGroup;
-			children = (
-				52B636CC2AD2890F00FD2D8B /* Preview.swift */,
-			);
-			path = OpenFile;
 			sourceTree = "<group>";
 		};
 		52B636CE2AD2890F00FD2D8B /* Feature */ = {
@@ -741,7 +717,6 @@
 				82C5A6182ACE6D360031DDAD /* LaunchScreen.storyboard in Resources */,
 				52B636B52AD27F7A00FD2D8B /* CustomOptionSB.storyboard in Resources */,
 				82C5A6332ACE94FD0031DDAD /* PhotoCollectionViewCell.xib in Resources */,
-				52B6374F2AD2890F00FD2D8B /* Feature.zip in Resources */,
 				52B637622AD2890F00FD2D8B /* Assets.xcassets in Resources */,
 				52B637812AD2891000FD2D8B /* YPLibraryView.xib in Resources */,
 				52B637612AD2890F00FD2D8B /* YPImagePickerLocalizable.strings in Resources */,
@@ -811,7 +786,6 @@
 				52B6378D2AD2891000FD2D8B /* AVMutableComposition+Extensions.swift in Sources */,
 				52B637582AD2890F00FD2D8B /* YPFilter.swift in Sources */,
 				82C5A6322ACE94FD0031DDAD /* PhotoCollectionViewCell.swift in Sources */,
-				52B6374D2AD2890F00FD2D8B /* WkBaseWebView.m in Sources */,
 				52B637832AD2891000FD2D8B /* YPPhotoCapture.swift in Sources */,
 				52B637862AD2891000FD2D8B /* PreiOS10PhotoCapture.swift in Sources */,
 				52B637842AD2891000FD2D8B /* YPCameraView.swift in Sources */,
@@ -859,7 +833,6 @@
 				52B637762AD2890F00FD2D8B /* YPLibrary+LibraryChange.swift in Sources */,
 				52B6379B2AD2891000FD2D8B /* AVCaptureSession+Extensions.swift in Sources */,
 				52B637572AD2890F00FD2D8B /* YPFilterCollectionViewCell.swift in Sources */,
-				52B6374E2AD2890F00FD2D8B /* Preview.swift in Sources */,
 				52B6376F2AD2890F00FD2D8B /* YPLibraryVC+PanGesture.swift in Sources */,
 				52B6376E2AD2890F00FD2D8B /* YPAlbumsManager.swift in Sources */,
 				52B6377A2AD2890F00FD2D8B /* YPBottomPagerView.swift in Sources */,
@@ -895,6 +868,7 @@
 				52B637712AD2890F00FD2D8B /* YPGridView.swift in Sources */,
 				52B637922AD2891000FD2D8B /* AVAssetTrack+Extensions.swift in Sources */,
 				52E04DA52AD28BA700BD5438 /* CameraVC.swift in Sources */,
+				82FABF082AD3ECE500FAF616 /* UIColor.swift in Sources */,
 				52B6374C2AD2890F00FD2D8B /* DocumentsManager.swift in Sources */,
 				52B637652AD2890F00FD2D8B /* YPDragDirection.swift in Sources */,
 				52B6375F2AD2890F00FD2D8B /* YPIcons.swift in Sources */,
