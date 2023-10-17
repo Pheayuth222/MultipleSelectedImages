@@ -1,0 +1,5 @@
+${PODS_ROOT}/Target Support Files/Pods-MultiPhotoPicker/Pods-MultiPhotoPicker-frameworks.sh
+${BUILT_PRODUCTS_DIR}/CarbonKit/CarbonKit.framework
+${BUILT_PRODUCTS_DIR}/FittedSheets/FittedSheets.framework
+${BUILT_PRODUCTS_DIR}/PryntTrimmerView/PryntTrimmerView.framework
+${BUILT_PRODUCTS_DIR}/SteviaLayout/Stevia.framework

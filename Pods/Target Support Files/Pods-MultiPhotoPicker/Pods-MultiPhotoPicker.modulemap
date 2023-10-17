@@ -1,0 +1,6 @@
+framework module Pods_MultiPhotoPicker {
+  umbrella header "Pods-MultiPhotoPicker-umbrella.h"
+
+  export *
+  module * { export * }
+}
