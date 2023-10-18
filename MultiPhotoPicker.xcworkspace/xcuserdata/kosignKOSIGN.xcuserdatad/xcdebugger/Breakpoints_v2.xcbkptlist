@@ -100,5 +100,429 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "93058A16-CE61-4290-9DDA-6E755DE99D6D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MultiPhotoPicker/YPImagePicker/Filters/YPPhotoFiltersVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "20962068-89C0-4E3B-8B8E-7F8192412B6B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MultiPhotoPicker/YPImagePicker/Filters/YPFiltersView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "init()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "13E27CC1-A12E-4BF3-ABE0-4F81B6D592D9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MultiPhotoPicker/YPImagePicker/Filters/YPFilterCollectionViewCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "isHighlighted"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4168279E-2381-47D1-AEAC-4C474666021C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MultiPhotoPicker/YPImagePicker/Filters/YPFilterCollectionViewCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "isSelected"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "87D9FBAF-B56F-4505-83A5-2F665B260A0D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MultiPhotoPicker/YPImagePicker/YPPickerVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D8B2755F-05A6-4093-8150-9A4CF6390D0F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MultiPhotoPicker/YPImagePicker/YPPickerVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "prefersStatusBarHidden"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0AC0B5DF-30F9-457D-8819-6D92EE96E7F0"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MultiPhotoPicker/YPImagePicker/YPPickerVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "Mode"
+            landmarkType = "13">
+            <Locations>
+               <Location
+                  uuid = "0AC0B5DF-30F9-457D-8819-6D92EE96E7F0 - 980d58283102d621"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MultiPhotoPicker.YPPickerVC.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; MultiPhotoPicker.YPPickerVC"
+                  moduleName = "MultiPhotoPicker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kosignKOSIGN/Desktop/MultipleSelectedImages-yuth/MultiPhotoPicker/YPImagePicker/YPPickerVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "46"
+                  endingLineNumber = "46"
+                  offsetFromSymbolStart = "420">
+               </Location>
+               <Location
+                  uuid = "0AC0B5DF-30F9-457D-8819-6D92EE96E7F0 - fce13343a0d1d7cb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MultiPhotoPicker.YPPickerVC.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;MultiPhotoPicker.YPPickerVC&gt;"
+                  moduleName = "MultiPhotoPicker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kosignKOSIGN/Desktop/MultipleSelectedImages-yuth/MultiPhotoPicker/YPImagePicker/YPPickerVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "46"
+                  endingLineNumber = "46"
+                  offsetFromSymbolStart = "396">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "66F70BB9-6D4E-448C-8B92-8E28B588193B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MultiPhotoPicker/YPImagePicker/Configuration/YPWordings.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "PermissionPopup"
+            landmarkType = "14">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A9C9FB5C-170A-48D7-9025-4477596FFF01"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MultiPhotoPicker/YPImagePicker/Filters/YPFilter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "init(name:coreImageFilterName:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1F189F72-C3F2-43CD-BF44-F5C6EB3949B3"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MultiPhotoPicker/YPImagePicker/Filters/YPFilter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "init(name:applier:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F4E28D8B-178D-41CE-B062-DA0BB6295FBC"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MultiPhotoPicker/YPImagePicker/Filters/YPPhotoFiltersVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "11"
+            endingLineNumber = "11"
+            landmarkName = "IsMediaFilterVC"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7AF8DDD4-7D58-4382-BC8D-A28E43326E4F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MultiPhotoPicker/YPImagePicker/Filters/YPPhotoFiltersVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "YPPhotoFiltersVC"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "7AF8DDD4-7D58-4382-BC8D-A28E43326E4F - e08b35c29b47f85e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MultiPhotoPicker.YPPhotoFiltersVC.init(inputPhoto: MultiPhotoPicker.YPMediaPhoto, isFromSelectionVC: Swift.Bool) -&gt; MultiPhotoPicker.YPPhotoFiltersVC"
+                  moduleName = "MultiPhotoPicker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kosignKOSIGN/Desktop/MultipleSelectedImages-yuth/MultiPhotoPicker/YPImagePicker/Filters/YPPhotoFiltersVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "228">
+               </Location>
+               <Location
+                  uuid = "7AF8DDD4-7D58-4382-BC8D-A28E43326E4F - 41e97b99b41ae6f0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MultiPhotoPicker.YPPhotoFiltersVC.didSave.getter : Swift.Optional&lt;(MultiPhotoPicker.YPMediaItem) -&gt; ()&gt;"
+                  moduleName = "MultiPhotoPicker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kosignKOSIGN/Desktop/MultipleSelectedImages-yuth/MultiPhotoPicker/YPImagePicker/Filters/YPPhotoFiltersVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "100">
+               </Location>
+               <Location
+                  uuid = "7AF8DDD4-7D58-4382-BC8D-A28E43326E4F - 1c3f82e06a9d98cc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MultiPhotoPicker.YPPhotoFiltersVC.didSave.setter : Swift.Optional&lt;(MultiPhotoPicker.YPMediaItem) -&gt; ()&gt;"
+                  moduleName = "MultiPhotoPicker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kosignKOSIGN/Desktop/MultipleSelectedImages-yuth/MultiPhotoPicker/YPImagePicker/Filters/YPPhotoFiltersVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "136">
+               </Location>
+               <Location
+                  uuid = "7AF8DDD4-7D58-4382-BC8D-A28E43326E4F - 3928d66410ac597d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MultiPhotoPicker.YPPhotoFiltersVC.didSave.modify : Swift.Optional&lt;(MultiPhotoPicker.YPMediaItem) -&gt; ()&gt;"
+                  moduleName = "MultiPhotoPicker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kosignKOSIGN/Desktop/MultipleSelectedImages-yuth/MultiPhotoPicker/YPImagePicker/Filters/YPPhotoFiltersVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "7AF8DDD4-7D58-4382-BC8D-A28E43326E4F - ed2fca69fb4103bd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MultiPhotoPicker.YPPhotoFiltersVC.didSave.modify : Swift.Optional&lt;(MultiPhotoPicker.YPMediaItem) -&gt; ()&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "MultiPhotoPicker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kosignKOSIGN/Desktop/MultipleSelectedImages-yuth/MultiPhotoPicker/YPImagePicker/Filters/YPPhotoFiltersVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  uuid = "7AF8DDD4-7D58-4382-BC8D-A28E43326E4F - da7b00263ea7cdb2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MultiPhotoPicker.YPPhotoFiltersVC.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;MultiPhotoPicker.YPPhotoFiltersVC&gt;"
+                  moduleName = "MultiPhotoPicker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kosignKOSIGN/Desktop/MultipleSelectedImages-yuth/MultiPhotoPicker/YPImagePicker/Filters/YPPhotoFiltersVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "212">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2C31A7ED-EF50-4BA7-9F44-4A446025DC81"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MultiPhotoPicker/YPImagePicker/Filters/YPPhotoFiltersVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "YPPhotoFiltersVC"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "2C31A7ED-EF50-4BA7-9F44-4A446025DC81 - e08b35c29b47f839"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MultiPhotoPicker.YPPhotoFiltersVC.init(inputPhoto: MultiPhotoPicker.YPMediaPhoto, isFromSelectionVC: Swift.Bool) -&gt; MultiPhotoPicker.YPPhotoFiltersVC"
+                  moduleName = "MultiPhotoPicker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kosignKOSIGN/Desktop/MultipleSelectedImages-yuth/MultiPhotoPicker/YPImagePicker/Filters/YPPhotoFiltersVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "260">
+               </Location>
+               <Location
+                  uuid = "2C31A7ED-EF50-4BA7-9F44-4A446025DC81 - 40d2457204a8437c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MultiPhotoPicker.YPPhotoFiltersVC.didCancel.getter : Swift.Optional&lt;() -&gt; ()&gt;"
+                  moduleName = "MultiPhotoPicker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kosignKOSIGN/Desktop/MultipleSelectedImages-yuth/MultiPhotoPicker/YPImagePicker/Filters/YPPhotoFiltersVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "100">
+               </Location>
+               <Location
+                  uuid = "2C31A7ED-EF50-4BA7-9F44-4A446025DC81 - bc6ece1f3feb4370"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MultiPhotoPicker.YPPhotoFiltersVC.didCancel.setter : Swift.Optional&lt;() -&gt; ()&gt;"
+                  moduleName = "MultiPhotoPicker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kosignKOSIGN/Desktop/MultipleSelectedImages-yuth/MultiPhotoPicker/YPImagePicker/Filters/YPPhotoFiltersVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "136">
+               </Location>
+               <Location
+                  uuid = "2C31A7ED-EF50-4BA7-9F44-4A446025DC81 - 4abfa2651e3937f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MultiPhotoPicker.YPPhotoFiltersVC.didCancel.modify : Swift.Optional&lt;() -&gt; ()&gt;"
+                  moduleName = "MultiPhotoPicker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kosignKOSIGN/Desktop/MultipleSelectedImages-yuth/MultiPhotoPicker/YPImagePicker/Filters/YPPhotoFiltersVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "2C31A7ED-EF50-4BA7-9F44-4A446025DC81 - b943ef5c2a6efb07"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MultiPhotoPicker.YPPhotoFiltersVC.didCancel.modify : Swift.Optional&lt;() -&gt; ()&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "MultiPhotoPicker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kosignKOSIGN/Desktop/MultipleSelectedImages-yuth/MultiPhotoPicker/YPImagePicker/Filters/YPPhotoFiltersVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  uuid = "2C31A7ED-EF50-4BA7-9F44-4A446025DC81 - da7b00263ea7cdd5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MultiPhotoPicker.YPPhotoFiltersVC.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;MultiPhotoPicker.YPPhotoFiltersVC&gt;"
+                  moduleName = "MultiPhotoPicker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kosignKOSIGN/Desktop/MultipleSelectedImages-yuth/MultiPhotoPicker/YPImagePicker/Filters/YPPhotoFiltersVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "244">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

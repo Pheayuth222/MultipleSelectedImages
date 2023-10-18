@@ -75,16 +75,8 @@ class ViewController: UIViewController {
         showInstaPopupMultipleImage(owner: self, isCreate: .library, maxImages: maxImages) { (imgs) in
             if imgs.count > 0 {
                 self.didFinishPickImages(images: imgs)
-                print("Images...: \(imgs)")
             }
         }
-        
-        // Single Select
-//        InstaImagePicker.showInstaPopupImage(owner: self) { (imgs) in
-//            self.didFinishSelectionImage(imageData: imgs)
-//            print(imgs)
-//            self.dismiss(animated: true, completion: nil)
-//        }
     }
     
     // TODO: - Upload Image from gallery
@@ -92,25 +84,14 @@ class ViewController: UIViewController {
         
         if images.count != 0 {
             
-            for (i, image) in images.enumerated() {
+            for (index, image) in images.enumerated() {
                 if let base64 = convertToBase64(image) {
                     let formatter           = DateFormatter()
                     formatter.dateFormat    = "yyyMMddHHmm"
-                    // REC_IN.append(WABOOKS_MREC_C002.REQUEST.REC(FILE_NM: "\(formatter.string(from: Date())).jpg", FILE_DATA: base64))
-                    
-//                    REC_IN.append(WABOOKS_MREC_C002.REQUEST.REC(FILE_NM: "\(formatter.string(from: Date()))\(i).jpg", FILE_DATA: base64))
                 }
             }
             self.imagesArr = images
             tableView.reloadData()
-            // Upload image
-//            self.uploadImage(body: WABOOKS_MREC_C002.REQUEST(REC_IN: REC_IN)) {
-//                DispatchQueue.main.async {
-//                    self.dismiss(animated: true) {
-//                        MyNotify.send(name:.reloadAfterUploadImage)
-//                    }
-//                }
-//            }
         }
         
     }
@@ -121,40 +102,13 @@ class ViewController: UIViewController {
         self.documentManager.openDocument()
         self.documentManager.isNotFromSubmit = true
         self.documentManager.completionError = { error in
-//            self.alert(message: error.localizedDescription)
             print(error.localizedDescription)
         }
-//        self.documentManager.completionFileInfo = { files in
-//            print(files)
-//        }
-
     }
     
 
     @IBAction func addPhoto(_ sender: UIButton) {
-//        let storyBoard = UIStoryboard(name: "ChoosePhotoSB", bundle: nil)
-//        let vc = storyBoard.instantiateViewController(withIdentifier: "ChoosePhotoVC") as! ChoosePhotoVC
-//        let nav = UINavigationController.init(rootViewController: vc)
-//        self.presetVC(vc: nav)
-//        sender.animateButtonUp()
         openGallery()
-//        customOption(type       : .MultipleChoice,
-//                     image      : "",
-//                     title      : "Take Picture",
-//                     message    : "Take a photo or choose from a gallery",
-//                     data       : ["Take a Photo", "Take a photo or choose from a gallery", "Attach File"],
-//                     selectRowAt: -1,
-//                     imgStrRec  : ["camera_ico", "gallery_ico", "tap_attachment"]) { [unowned self](index) in
-//            switch index {
-//            case 0:
-//                self.view.endEditing(true)
-//                self.checkCameraPermisson()
-//
-//            case 1  : self.openGallery()
-//            case 2  : self.openAttachFile()
-//            default : break
-//            }
-//        }
     }
     
     
@@ -243,25 +197,6 @@ extension ViewController {
         config.wordings.done                            = "Next" //"select" // "choose".localized
         config.wordings.warningMaxItemsLimit            = ""
         config.colors.coverSelectorBorderColor          = .red
-//        config.colors.multipleItemsSelectedCircleColor  = UIColor(hexString: "0069B9")
-//        config.colors.tintColor                         = UIColor(hexString: "0069B9") // Right bar buttons (actions)
-        
-//        let defaultFont     = UIFont(name: "Inter-Bold", size: 15)
-//        let fontNameToTest  = defaultFont!.fontName.lowercased()
-//        let fontName        = Shared.share.getLocalizedFont(preFontName: fontNameToTest)
-//        let font            = UIFont(name: fontName, size: defaultFont!.pointSize)
-
-        // #494949
-//        UINavigationBar.appearance().titleTextAttributes    = [NSAttributedString.Key.foregroundColor : UIColor(hexString: "0069B9"),  NSAttributedString.Key.font : font!] // Title color nav bar
-//        UINavigationBar.appearance().tintColor              = UIColor(hexString: "0069B9") // Left. bar buttons
-
-//        let attrsBarButton = [
-//            NSAttributedString.Key.font: UIFont(name: fontName, size: 15)!,
-//            NSAttributedString.Key.foregroundColor : UIColor(hexString: "0069B9")
-//        ]
-//        UIBarButtonItem.appearance().setTitleTextAttributes(attrsBarButton, for: .normal)
-////        UINavigationBar.appearance().barTintColor = .pinky
-//        UINavigationBar.appearance().isTranslucent = false
     
         let picker = YPImagePicker(configuration: config)
         /*
@@ -308,22 +243,6 @@ extension ViewController {
        config.wordings.done                    = "select"
        config.wordings.warningMaxItemsLimit    = "사진과 동영상은 최대 10개 까지 선택할 수 있습니다."
        
-       
-//        let defaultFont     = UIFont(name: "Inter-Bold", size: 15)
-//        let fontNameToTest  = defaultFont!.fontName.lowercased();
-//        let fontName        = Shared.share.getLocalizedFont(preFontName: fontNameToTest)
-//        let font            =  UIFont(name: fontName, size: defaultFont!.pointSize)
-//
-//        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor(hexString: "0069B9"), NSAttributedString.Key.font: font! ] // Title color
-//        UINavigationBar.appearance().tintColor = UIColor(hexString: "0069B9") // Left. bar buttons
-//        //config.colors.tintColor = .pinky // Right bar buttons (actions)
-//
-//
-//        let attrsBarButton = [
-//            NSAttributedString.Key.font: UIFont(name: fontName, size: 15)!,
-//            NSAttributedString.Key.foregroundColor : UIColor(hexString: "0069B9")
-//        ]
-//        UIBarButtonItem.appearance().setTitleTextAttributes(attrsBarButton, for: .normal)
 
        let picker = YPImagePicker(configuration: config)
        //picker.navigationBar.barTintColor = .pinky
